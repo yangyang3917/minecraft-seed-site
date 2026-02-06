@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft种子站</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+</head>
+<body>
+<!-- 公告模态框 -->
+<div id="notice-modal" class="notice-modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>📢 公告</h3>
+            <button id="close-modal-btn" class="modal-close-btn" aria-label="关闭公告">×</button>
+        </div>
+        <div class="modal-body">
+            <p id="notice-text"></p>
+        </div>
+        <div class="modal-footer">
+            <button id="dismiss-notice-btn" class="modal-btn dismiss-btn">不再显示</button>
+            <button id="close-notice-modal-btn" class="modal-btn close-btn">关闭</button>
+        </div>
+    </div>
+</div>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🌱 Minecraft种子站</h1>
+                <p class="subtitle">发现并分享最佳的Minecraft种子</p>
+            </div>
+            <div class="header-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 筛选控制面板 -->
+            <section class="filters-section">
+                <div class="filter-group">
+                    <h3>平台</h3>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="platform" value="java" checked>
+                            <span class="checkbox-custom"></span>
+                            <span>Java版</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="platform" value="bedrock" checked>
+                            <span class="checkbox-custom"></span>
+                            <span>基岩版</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>版本</h3>
+                    <div class="filter-options version-options">
+                        <!-- 版本选项将由JavaScript动态生成 -->
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>特点</h3>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="features" value="terrain" checked>
+                            <span class="checkbox-custom"></span>
+                            <span>地形类</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="features" value="structure" checked>
+                            <span class="checkbox-custom"></span>
+                            <span>结构类</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="features" value="chest" checked>
+                            <span class="checkbox-custom"></span>
+                            <span>宝箱类</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group full-width">
+                    <h3>搜索</h3>
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="在描述中搜索...">
+                        <button id="search-btn" class="search-btn">搜索</button>
+                        <button id="reset-btn" class="reset-btn">重置</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 种子卡片展示区 -->
+            <section class="seeds-section">
+                <div class="stats">
+                    <span id="seed-count">0</span> 个种子
+                </div>
+                <div id="seeds-container" class="seeds-container">
+                    <!-- 种子卡片将由JavaScript动态生成 -->
+                </div>
+                <div id="loading-indicator" class="loading-indicator hidden">
+                    <div class="spinner"></div>
+                    <p>正在加载更多种子...</p>
+                </div>
+                <div id="no-results" class="no-results hidden">
+                    <p>😔 没有找到匹配的种子</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+
+    <!-- 复制成功提示 -->
+    <div id="copy-toast" class="copy-toast hidden">✅ 种子已复制到剪贴板！</div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>Minecraft种子站 - 分享最佳的Minecraft种子</p>
+            <a href="mailto:yangyang3917@qq.com" target="_blank">种子投稿：yangyang3917@qq.com</a>
+            <p class="footer-note">本网站仅用于种子分享，与Mojang Studios无关</p>
+  
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="back-to-top hidden" aria-label="返回顶部">↑</button>
+</body>
+</html>

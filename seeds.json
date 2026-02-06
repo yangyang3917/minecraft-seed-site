@@ -1,0 +1,158 @@
+{
+"seeds": [
+	{
+	"seed": "-1612991980035893842",
+	"platform": "bedrock",
+	"version": "1.21+",
+	"is_spawn_point": false,
+	"position_X": 13168,
+	"position_Y": "~",
+	"position_Z": 6950,
+	"features": ["structure"],
+	"description": "露天蜘蛛刷怪笼"
+	},
+	{
+	"seed": "-5560777559726906950",
+	"platform": "bedrock",
+	"version": "1.21.12",
+	"is_spawn_point": false,
+	"position_X": 10,
+	"position_Y": "~",
+	"position_Z": 230,
+	"features": ["structure"],
+	"description": "露天僵尸地牢"
+	},
+	{
+	"seed": "8548394124781534031",
+	"platform": "java",
+	"version": "1.21.10",
+	"is_spawn_point": false,
+	"position_X": -450,
+	"position_Y": "~",
+	"position_Z": -1150,
+	"features": ["terrain"],
+	"description": "露天沙漠红树木"
+	},
+	{
+	"seed": "1759205874873541507",
+	"platform": "bedrock",
+	"version": "1.21+",
+	"is_spawn_point": false,
+	"position_X": 115,
+	"position_Y": 253,
+	"position_Z": 309,
+	"features": ["structure"],
+	"description": "在空岛的水里的沉船"
+	},
+	{
+	"seed": "-6587785703548217822",
+	"platform": "java",
+	"version": "1.20.1",
+	"is_spawn_point": false,
+	"position_X": 378,
+	"position_Y": 90,
+	"position_Z": 32,
+	"features": ["terrain"],
+	"description": "超小樱花树林（甚至连树都没有）"
+	},
+	{
+	"seed": "-568182199771003552",
+	"platform": "java",
+	"version": "1.16.1",
+	"is_spawn_point": true,
+	"position_X": 0,
+	"position_Y": 0,
+	"position_Z": 0,
+	"features": ["terrain"],
+	"description": "出生点只有一个方块"
+	},
+	{
+	"seed": "-1773308270418601172",
+	"platform": "java",
+	"version": "1.21.10",
+	"is_spawn_point": false,
+	"position_X": 296,
+	"position_Y": -3,
+	"position_Z": -1611,
+	"features": ["structure"],
+	"description": "试炼大厅中有一个要塞图书馆，还有一个僵尸地牢，并且要塞的传送门房间被紫水晶矿洞堵死"
+	},
+	{
+	"seed": "17378961",
+	"platform": "java",
+	"version": "1.21.4",
+	"is_spawn_point": false,
+	"position_X": -1260,
+	"position_Y": 70,
+	"position_Z": -205,
+	"features": ["structure"],
+	"description": "沉船卡在海底神殿上方"
+	},
+	{
+	"seed": "-1933462692362953853",
+	"platform": "bedrock",
+	"version": "1.21",
+	"is_spawn_point": true,
+	"position_X": 0,
+	"position_Y": 0,
+	"position_Z": 0,
+	"features": ["terrain"],
+	"description": "树叶围成的数字6"
+	},
+	{
+	"seed": "5905247338865480013",
+	"platform": "java",
+	"version": "1.21.4",
+	"is_spawn_point": true,
+	"position_X": 0,
+	"position_Y": 0,
+	"position_Z": 0,
+	"features": ["structure"],
+	"description": "出生点小岛有金合欢、平原和两座沙漠村庄共四座村庄"
+	},
+	{
+	"seed": "688605574159918694",
+	"platform": "java",
+	"version": "1.21.4",
+	"is_spawn_point": false,
+	"position_X": 0,
+	"position_Y": "~",
+	"position_Z": -272,
+	"features": ["structure"],
+	"description": "村庄和沙漠神殿合体"
+	},
+	{
+	"seed": "-8879347838123428983",
+	"platform": "bedrock",
+	"version": "1.21.12",
+	"is_spawn_point": false,
+	"position_X": -900,
+	"position_Y": "~",
+	"position_Z": 1000,
+	"features": ["terrain","structure"],
+	"description": "大峡谷下面有露天要塞，要塞里还有沙漠神殿，神殿下面有试炼大厅"
+	},
+	{
+	"seed": "-9141546986710081280",
+	"platform": "bedrock",
+	"version": "1.21",
+	"is_spawn_point": true,
+	"position_X": 0,
+	"position_Y": 0,
+	"position_Z": 0,
+	"features": ["structure"],
+	"description": "掠夺者前哨站、丛林神庙和村庄生成在一起"
+	},
+	{
+	"seed": "0000000000",
+	"platform": "bedrock",
+	"version": "1.10",
+	"is_spawn_point": false,
+	"position_X": -300,
+	"position_Y": "~",
+	"position_Z": 400,
+	"features": ["terrain","structure","chest"],
+	"description": "示例（不要管这个卡片）"
+	}
+	]
+}
