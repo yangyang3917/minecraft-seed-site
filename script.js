@@ -11,7 +11,7 @@ let filters = {
 };
 let allVersions = [
     '1.12', '1.16', '1.16.1', '1.17', '1.18', '1.19', 
-    '1.19.2','1.20', '1.20.1', '1.20.2', '1.20.3',
+    '1.20', '1.20.1', '1.20.2', '1.20.3',
     '1.21', '1.21.1', '1.21.2', '1.21.3', '1.21.4', 
     '1.21.5', '1.21.6', '1.21.7', '1.21.8', '1.21.9', 
     '1.21.10', '1.21.11','1.21.12'
@@ -409,10 +409,10 @@ function createSeedCard(seed) {
     
     card.innerHTML = `
         ${seed.seed ? 
-            `<img src="${imagePath}" alt="种子${seed.seed}的图片" class="seed-image" onerror="this.style.display='none'; this.parentNode.querySelector('.image-placeholder').style.display='flex';">` : 
+            `<img data-src="${imagePath}" alt="种子${seed.seed}的图片" class="seed-image" style="display:none;" onerror="this.style.display='none'; this.parentNode.querySelector('.image-placeholder').style.display='flex';">` : 
             ''
         }
-        <div class="image-placeholder" style="${seed.seed ? 'display: none;' : ''}"></div>
+        <div class="image-placeholder" style="${seed.seed ? '' : ''}"></div>
         <div class="seed-content">
             <div class="seed-meta">
                 <div class="seed-platform">
@@ -432,7 +432,48 @@ function createSeedCard(seed) {
     const copyBtn = card.querySelector('.copy-btn');
     copyBtn.addEventListener('click', () => copySeedToClipboard(seed.seed, copyBtn));
     
+    // 延迟加载并缓存图片（先检查 Cache Storage）
+    (async () => {
+        const imgEl = card.querySelector('.seed-image');
+        const placeholder = card.querySelector('.image-placeholder');
+        if (!imgEl) return;
+        try {
+            const src = imgEl.getAttribute('data-src');
+            const finalSrc = await ensureImageCached(src);
+            imgEl.src = finalSrc;
+            imgEl.style.display = '';
+            if (placeholder) placeholder.style.display = 'none';
+        } catch (e) {
+            // 保持占位符显示
+            console.warn('图片加载或缓存失败:', e);
+        }
+    })();
+    
     return card;
+}
+
+// 确保图片被缓存：优先使用 Cache Storage 中的缓存，否则抓取并存入缓存
+async function ensureImageCached(url) {
+    if (!url) return url;
+    if (!('caches' in window)) return url;
+    try {
+        const cache = await caches.open('seed-images');
+        const cachedResponse = await cache.match(url);
+        if (cachedResponse) {
+            const blob = await cachedResponse.blob();
+            return URL.createObjectURL(blob);
+        }
+
+        const response = await fetch(url, { cache: 'no-cache' });
+        if (!response.ok) throw new Error('Network response was not ok');
+        // 将响应放入缓存（clone 因为 response 流只能读取一次）
+        await cache.put(url, response.clone());
+        const blob = await response.blob();
+        return URL.createObjectURL(blob);
+    } catch (err) {
+        console.warn('ensureImageCached error:', err);
+        return url;
+    }
 }
 // 复制种子到剪贴板
 async function copySeedToClipboard(seed, button) {
@@ -455,7 +496,7 @@ async function copySeedToClipboard(seed, button) {
         }
     } catch (err) {
         console.error('复制失败:', err);
-        showCopyToast('❌❌ 复制失败，请手动复制');
+        showCopyToast('❌ 复制失败，请手动复制');
     }
 }
 
